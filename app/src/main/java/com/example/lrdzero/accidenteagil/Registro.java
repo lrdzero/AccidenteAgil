@@ -88,7 +88,7 @@ public class Registro extends Activity implements View.OnClickListener {
         String DNI = dni.getText().toString();
 
         peticionRegistro(name, password, apl, email, DNI);
-        finish();
+
     }
     public void peticionRegistro(String name, String password,String apellidos,String email,String dni){
 
@@ -107,6 +107,7 @@ public class Registro extends Activity implements View.OnClickListener {
                 super.onPostExecute(s);
                 loading.dismiss();
                 Toast.makeText(Registro.this, s, Toast.LENGTH_LONG).show();
+                finish();
             }
             @Override
             protected String doInBackground(String... params){

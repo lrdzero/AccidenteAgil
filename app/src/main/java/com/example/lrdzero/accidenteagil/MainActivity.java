@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.lrdzero.accidenteagil.Utiles.UtilesDialog;
@@ -25,6 +26,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView forg;
     private Button btn;
     private UtilesDialog utils;
+    private boolean error_login=false;
     private static final String LOGIN_URL = "http://aplicacionseguros.esy.es/login.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +63,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 else {
                     //COMPROBAR EXISTENCIA EN BD
                     //IDENTIFICAR ERROR Y MOSTRARLO
-                    peticionLogin( tCorreo, tPss);
 
+                    long timeStart,timeOut;
+                    timeStart= System.currentTimeMillis();
+                    peticionLogin( tCorreo, tPss);
+                    timeOut=System.currentTimeMillis();
+                    double time = Double.valueOf((timeStart-timeOut)/1000);
+                    Toast.makeText(getApplicationContext(),"Timepo de respuesta = "+Double.toString(time), Toast.LENGTH_LONG).show();
+                    if(error_login){
+                        utils.UtilesDialog(MainActivity.this,"Correo inexistente o contraseña no valida").show();
+                        error_login=false;
+                    }
 
                 }
                 break;
@@ -104,8 +115,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     startActivity(n);
                 }
                 else if(s.equals("0")){
-                    utils.UtilesDialog(MainActivity.this,"Correo inexistente o contraseña no valida").show();
+                    error_login=true;
+                    //utils.UtilesDialog(MainActivity.this,"Correo inexistente o contraseña no valida").show();
                 }
+
             }
             @Override
             protected String doInBackground(String... params){
