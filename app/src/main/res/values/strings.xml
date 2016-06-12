@@ -4,4 +4,26 @@
     <string name="title_activity_forgot_pass">ForgotPass</string>
     <string name="title_activity_registro">Registro</string>
     <string name="title_activity_datos_iniciales">DatosIniciales</string>
+    <string name="title_activity_seleccion">Seleccion</string>
+    <string name="section_format">Circunstancia nº:%1$d</string>
+    <string-array name="preguntas_format">
+        <item>Estaba estacionado</item>
+        <item>Salía de un estacionamiento</item>
+        <item>Iba a estacionar</item>
+        <item>Salía de un aparcamiento,de un lugar privado, de un camino de tierra</item>
+        <item>Entraba en un aparcamiento, a un lugar privado, a un camino de tierra</item>
+        <item>Entraba en una plaza de sentido giratorio</item>
+        <item>Circulaba por una plaza de sentido giratoiro</item>
+        <item>Colisionó en la parte de atrás al otro vehículo que circulaba en el mismo sentido y en el mismo carril</item>
+        <item>Circulaba en el mismo sentido y en carril diferente</item>
+        <item>Cambiaba de carril</item>
+        <item>Adelantaba</item>
+        <item>Giraba a la derecha</item>
+        <item>Giraba a la izquierda</item>
+        <item>Daba marcha atrás</item>
+        <item>Invadía la parte reservada a la circulación en sentido inverso</item>
+        <item>Venía de la derecha (en un cruze)</item>
+        <item>No respeto la señal de preferencia</item>
+    </string-array>
+    <string name="title_activity_posicionamiento">Posicionamiento</string>
 </resources>

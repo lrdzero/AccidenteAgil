@@ -1,4 +1,4 @@
-package com.example.lrdzero.accidenteagil;
+package com.example.lrdzero.accidenteagil.Inicio;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.lrdzero.accidenteagil.Implicado;
+import com.example.lrdzero.accidenteagil.R;
 import com.example.lrdzero.accidenteagil.Utiles.UtilesDialog;
 
 import java.io.BufferedReader;
@@ -93,7 +95,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
-    public void peticionLogin(String tCorreo, String password){
+    public void peticionLogin(final String tCorreo, String password){
         final String[] value = {""};
         String urlSuffix = "?correo=" + tCorreo + "&password=" + password;
         class RegistrarEnBD extends AsyncTask<String,Void,String> {
@@ -111,8 +113,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 loading.dismiss();
                 //Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();
                 if(s.equals("1")){
-                    Intent n = new Intent(MainActivity.this,DatosIniciales.class);
-                    startActivity(n);
+                    Intent toInit = new Intent(MainActivity.this,Implicado.class);
+                    toInit.putExtra("UsuarioA",tCorreo);
+                    startActivity(toInit);
                 }
                 else if(s.equals("0")){
                     error_login=true;

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lrdzero.accidenteagil">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Inicio.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,17 +22,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ForgotPass"
+            android:name=".Inicio.ForgotPass"
             android:label="@string/title_activity_forgot_pass"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Registro"
+            android:name=".Inicio.Registro"
             android:label="@string/title_activity_registro"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".DatosIniciales"
+            android:name=".Implicado"
             android:label="@string/title_activity_datos_iniciales"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Circunstancias"
+            android:label="@string/title_activity_seleccion"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Posicionamiento"
+            android:label="@string/title_activity_posicionamiento"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SeleccionVehiculo" />
+        <activity android:name=".DatosIniciales"></activity>
     </application>
 
 </manifest>

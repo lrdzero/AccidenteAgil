@@ -1,4 +1,4 @@
-package com.example.lrdzero.accidenteagil;
+package com.example.lrdzero.accidenteagil.Inicio;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.lrdzero.accidenteagil.R;
 import com.example.lrdzero.accidenteagil.Utiles.UtilesDialog;
 
 
