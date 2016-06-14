@@ -1,9 +1,7 @@
-package com.example.lrdzero.accidenteagil;
+package com.example.lrdzero.accidenteagil.RecopilacionDatos;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -22,6 +20,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.lrdzero.accidenteagil.R;
+import com.example.lrdzero.accidenteagil.Utiles.UtilesDialog;
+
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Circunstancias extends AppCompatActivity {
 
     /**
@@ -35,6 +40,8 @@ public class Circunstancias extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private static Integer [] respuestas;
+    private static UtilesDialog utils;
+    private static String path;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -51,7 +58,9 @@ public class Circunstancias extends AppCompatActivity {
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        utils = new UtilesDialog(getApplicationContext());
 
+        path=getIntent().getExtras().getString("archivo");
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -140,7 +149,7 @@ public class Circunstancias extends AppCompatActivity {
             }
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
 
-            String [] circunstancias =getResources().getStringArray(R.array.preguntas_format);
+            final String [] circunstancias =getResources().getStringArray(R.array.preguntas_format);
             preguntas.setText(circunstancias[getArguments().getInt(ARG_SECTION_NUMBER)-1]);
 
             vehiculoA.setOnClickListener(new View.OnClickListener() {
@@ -165,10 +174,33 @@ public class Circunstancias extends AppCompatActivity {
             finaliz.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent myIntent=new Intent(getContext(),Posicionamiento.class);
-                    for(int i=0;i<respuestas.length;i++)
-                    myIntent.putExtra("vector"+i,respuestas[i]);
-                    startActivity(myIntent);
+                    if(chequear(respuestas)) {
+                        FileWriter file = null;
+                        try {
+                            file = new FileWriter(path,true);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+
+                            for (int i = 0; i < respuestas.length; i++){
+                                file.write("\nPregunta "+i+": " + Integer.toString(respuestas[i]));
+
+                             }
+                            file.close();
+
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Intent toApreciacion = new Intent(getContext(), ApreciacionesDanios.class);
+                        toApreciacion.putExtra("path",path);
+                        startActivity(toApreciacion);
+                    }
+                    else{
+                        utils.UtilesDialog(rootView.getContext(),"Error: No se han seleccionado casillas.");
+                    }
                 }
             });
 
@@ -176,7 +208,20 @@ public class Circunstancias extends AppCompatActivity {
             return rootView;
         }
     }
-
+    public static boolean chequear(Integer [] r){
+        Boolean cheq= null;
+        int sum=0;
+        for(int i=0;i<17;i++){
+            sum+=r[i];
+        }
+        if(sum==0){
+            cheq=false;
+        }
+        else{
+            cheq=true;
+        }
+        return cheq;
+    }
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.

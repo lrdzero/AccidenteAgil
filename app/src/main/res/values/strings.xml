@@ -26,4 +26,5 @@
         <item>No respeto la señal de preferencia</item>
     </string-array>
     <string name="title_activity_posicionamiento">Posicionamiento</string>
+    <string name="title_activity_apreciaciones_danios">ApreciacionesDanios</string>
 </resources>

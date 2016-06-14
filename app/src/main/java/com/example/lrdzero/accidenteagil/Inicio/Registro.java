@@ -108,7 +108,7 @@ public class Registro extends Activity implements View.OnClickListener {
             protected void onPostExecute(String s){
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(Registro.this, s, Toast.LENGTH_LONG).show();
+               // Toast.makeText(Registro.this, s, Toast.LENGTH_LONG).show();
                 finish();
             }
             @Override

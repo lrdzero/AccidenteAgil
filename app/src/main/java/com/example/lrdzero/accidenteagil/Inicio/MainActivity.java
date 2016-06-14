@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.lrdzero.accidenteagil.Implicado;
+import com.example.lrdzero.accidenteagil.RecopilacionDatos.Implicado;
 import com.example.lrdzero.accidenteagil.R;
 import com.example.lrdzero.accidenteagil.Utiles.UtilesDialog;
 
@@ -71,7 +71,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     peticionLogin( tCorreo, tPss);
                     timeOut=System.currentTimeMillis();
                     double time = Double.valueOf((timeStart-timeOut)/1000);
-                    Toast.makeText(getApplicationContext(),"Timepo de respuesta = "+Double.toString(time), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),"Timepo de respuesta = "+Double.toString(time), Toast.LENGTH_LONG).show();
                     if(error_login){
                         utils.UtilesDialog(MainActivity.this,"Correo inexistente o contraseña no valida").show();
                         error_login=false;

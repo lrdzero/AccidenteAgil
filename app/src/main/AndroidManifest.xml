@@ -4,6 +4,18 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="package.name.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+
+
 
     <application
         android:allowBackup="true"
@@ -11,6 +23,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDc-D-2S6vOMci9HlcNS6ob1qTK3wRtE_E"/>
         <activity
             android:name=".Inicio.MainActivity"
             android:label="@string/app_name"
@@ -30,19 +49,25 @@
             android:label="@string/title_activity_registro"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Implicado"
+            android:name=".RecopilacionDatos.Implicado"
             android:label="@string/title_activity_datos_iniciales"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Circunstancias"
+            android:name=".RecopilacionDatos.Circunstancias"
             android:label="@string/title_activity_seleccion"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Posicionamiento"
+            android:name=".RecopilacionDatos.Posicionamiento"
             android:label="@string/title_activity_posicionamiento"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SeleccionVehiculo" />
-        <activity android:name=".DatosIniciales"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+            </activity>
+        <activity android:name=".RecopilacionDatos.SeleccionVehiculo" />
+        <activity android:name=".RecopilacionDatos.DatosIniciales" />
+        <activity
+            android:name=".RecopilacionDatos.ApreciacionesDanios"
+            android:label="@string/title_activity_apreciaciones_danios"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

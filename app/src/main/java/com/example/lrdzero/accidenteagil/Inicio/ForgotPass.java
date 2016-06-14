@@ -36,7 +36,7 @@ public class ForgotPass extends AppCompatActivity {
                     Intent email = new Intent(Intent.ACTION_SEND);
                     email.setType("text/plain");
                     email.putExtra(Intent.EXTRA_EMAIL,new String[]{corr.getText().toString()});
-                    email.putExtra(Intent.EXTRA_SUBJECT,"AutoGuismoAPP");
+                    email.putExtra(Intent.EXTRA_SUBJECT,"agilSecurePassword");
                     email.putExtra(Intent.EXTRA_TEXT,"He aquí su contraseña");
                     startActivity(email.createChooser(email,"Enviando correo"));
                 }

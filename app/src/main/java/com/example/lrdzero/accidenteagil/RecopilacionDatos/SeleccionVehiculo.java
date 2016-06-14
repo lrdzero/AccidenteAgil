@@ -1,4 +1,4 @@
-package com.example.lrdzero.accidenteagil;
+package com.example.lrdzero.accidenteagil.RecopilacionDatos;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import com.example.lrdzero.accidenteagil.R;
 import com.example.lrdzero.accidenteagil.Utiles.UtilesDialog;
 
 public class SeleccionVehiculo extends Activity {
@@ -20,6 +21,7 @@ public class SeleccionVehiculo extends Activity {
     private String userA,userB;
     private String matriculaA,matriculaB;
     private UtilesDialog utils;
+
 
 
     @Override
@@ -36,7 +38,8 @@ public class SeleccionVehiculo extends Activity {
         userB = getIntent().getExtras().getString("UsuarioB");
 
         //TODO: Cargar matrículas por usuario desde BD.
-        final String[] matriculas = new String[]{"Hola", "Puta"};
+        final String[] matriculas = new String[]{"MATRICULAA", "MATRICULAB"};
+
 
 
         utils = new UtilesDialog(getApplicationContext());
@@ -79,7 +82,7 @@ public class SeleccionVehiculo extends Activity {
                 if (matriculaA.matches("") || matriculaB.matches("")) {
                     utils.UtilesDialog(SeleccionVehiculo.this, "Faltan campos de matricula por rellenar");
                 } else {
-                    Intent toSeleccion = new Intent(SeleccionVehiculo.this, Circunstancias.class);
+                    Intent toSeleccion = new Intent(SeleccionVehiculo.this, DatosIniciales.class);
                     toSeleccion.putExtra("UserA", userA);
                     toSeleccion.putExtra("UserB", userB);
                     toSeleccion.putExtra("matriculaA", matriculaA);

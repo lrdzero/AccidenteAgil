@@ -3,6 +3,15 @@ package com.example.lrdzero.accidenteagil.Utiles;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.text.InputType;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.example.lrdzero.accidenteagil.R;
+
+import junit.framework.Test;
 
 /**
  * Created by lrdzero on 29/03/2016.
@@ -43,6 +52,8 @@ public class UtilesDialog extends AlertDialog {
         return builder;
 
     }
+
+
 
 }
 

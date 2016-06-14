@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.lrdzero.accidenteagil.SeleccionVehiculo">
+    tools:context=".RecopilacionDatos.SeleccionVehiculo">
 
     <LinearLayout
         android:orientation="vertical"
@@ -65,7 +65,7 @@
                 android:src="@drawable/next"
                 android:adjustViewBounds="true"
                 android:layout_gravity="center_vertical|left"
-                android:layout_marginLeft="230dp" />
+                android:layout_marginLeft="190dp" />
         </LinearLayout>
 
     </LinearLayout>

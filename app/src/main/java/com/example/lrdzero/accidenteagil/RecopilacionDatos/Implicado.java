@@ -1,4 +1,4 @@
-package com.example.lrdzero.accidenteagil;
+package com.example.lrdzero.accidenteagil.RecopilacionDatos;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.lrdzero.accidenteagil.R;
 import com.example.lrdzero.accidenteagil.Utiles.UtilesDialog;
 
 public class Implicado extends Activity implements View.OnClickListener{
@@ -42,15 +43,21 @@ public class Implicado extends Activity implements View.OnClickListener{
                     startActivity(toCar);
                 }
                 else{
-                    utils.UtilesDialog(Implicado.this,"No se ha encontrado al usuario");
+                    utils.UtilesDialog(Implicado.this,"No se ha encontrado al usuario").show();
                 }
                 break;
         }
     }
 
     public boolean matchingND(String nombre,String DNI){
-
-        return true;
+        boolean salida;
+        if(nombre.matches("")&&DNI.matches("")){
+            salida=false;
+        }
+        else{
+            salida=true;
+        }
+        return salida;
     }
 
 
