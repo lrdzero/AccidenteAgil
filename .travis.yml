@@ -1,21 +1,16 @@
 language: android
 jdk:
-  - oraclejdk7
-  - openjdk7
+  - oraclejdk8
 android:
   components:
-  - build-tools-23.0.2
-  - android-23
+    - tools
+    - platform-tools
+    - build-tools-23.0.2
+    - android-23
+    - extra-google-m2repository
+    - extra-android-m2repository
 
-script: bash gradlew packageRelease --info
-
-deploy:
-  provider: releases
-  api-key:
-    secure: OcpR3tlo3D+rFVfjRCMY2RqzRhfCFJ5TcEciGk0SK6uvkV78HbanAsHeHG65Rt4GEIfYhnStfKs/2MRHXlIq41AH4Va4gvksZLyyT+U0UKeVaiuSaiSIe8bMR4x3EXbPeiuxR8LfcZnxA2vDbPAElLKXT2cyAypQ3GUmbcbLV60=
-  file:
-    - build/apk/wild-kitten-release-unsigned.apk
-  skip_cleanup: true
-  on:
-    tags: true
-    all_branches: true
+script:
+    - ./gradlew build connectedCheck
+before_install:
+    - chmod +x gradlew
