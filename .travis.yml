@@ -27,6 +27,6 @@ before_script:
 script:
   - android list target
   - ./gradlew build connectedCheck
-  - ./gradlew build connectedAndroidTest
+  #- ./gradlew build connectedAndroidTest
 before_install:
   - chmod +x gradlew
